@@ -88,6 +88,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: Get.height * 0.02),
                       TextFormField(
+                        controller: loginController.passwordController.value,
                         decoration: InputDecoration(
                           labelText: 'Password',
                           hintText: 'Enter your password',
@@ -139,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(height: Get.height * 0.03),
-                      ElevatedButton(
+                      Obx(()=>ElevatedButton(
                         onPressed: () {
 
                           loginController.loginApi();
@@ -162,8 +163,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           elevation: 5,
                         ),
-                        child: const Text('Login'),
-                      ),
+                        child: loginController.loading.value? CircularProgressIndicator(color: Colors.white,) : Text('Login'),
+                      ),),
                       SizedBox(height: Get.height * 0.03),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
