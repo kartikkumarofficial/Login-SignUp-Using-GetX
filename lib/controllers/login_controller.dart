@@ -23,10 +23,13 @@ class LoginController extends GetxController{
         var data = jsonDecode(response.body);
         print(response.statusCode);
         print(data);
+
+
         if(response.statusCode==200){
-
-
-        }else{}
+          Get.snackbar('Login Successful', data['error']);
+        }else{
+          Get.snackbar('Login Unsuccessful', data['error']);
+        }
 
     }
     catch(e){
