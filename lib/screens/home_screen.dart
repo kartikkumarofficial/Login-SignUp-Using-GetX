@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login/controllers/login_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // Track password visibility state
+  LoginController loginController = Get.put(LoginController());
   bool _isPasswordVisible = false;
 
   @override
@@ -63,6 +64,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: Get.height * 0.05),
                       TextFormField(
+                        controller: loginController.emailController.value,
                         decoration: InputDecoration(
                           labelText: 'Email',
                           hintText: 'Enter your email',
@@ -139,7 +141,9 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: Get.height * 0.03),
                       ElevatedButton(
                         onPressed: () {
-                          // Handle login
+
+                          loginController.loginApi();
+
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF6A11CB),
