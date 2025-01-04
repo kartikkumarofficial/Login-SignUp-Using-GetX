@@ -1,4 +1,4 @@
-Login and signup page powered by rest apis with the help of getx - allows only the authorized email to pass
+Login and signup page using GetX and REST APIs, allowing only authorized emails.
 
 <h1>Outputs</h1>
 <img src="Outputs/1.jpg" height="500" width="200">
